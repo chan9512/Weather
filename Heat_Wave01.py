@@ -7,7 +7,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from datetime import date, timedelta, datetime
 import time
-
+#---------------------------3일뒤 폭염/한파 경보--------------------------------
 today = date.today()
 now = datetime.now()
 
@@ -39,7 +39,7 @@ url = url + Queryparams
 result = requests.get(url)
 
 bs_obj = BeautifulSoup(result.text, "html.parser")
-
+print(bs_obj)
 CommerceInfor = {}
 Max_3list = []
 Min_3list = []

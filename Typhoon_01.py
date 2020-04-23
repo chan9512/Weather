@@ -7,19 +7,20 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from datetime import date, timedelta, datetime
 import time
-
+#--------------------오늘 관측된 태풍 정보----------------------------
 
 url = 'http://apis.data.go.kr/1360000/TyphoonInfoService/getTyphoonInfo'
 
-
-
-
+today = date.today()
+now = datetime.now()
+y=today.strftime('%Y%m%d')
+print(y)
 Queryparams = '?' + 'serviceKey=' + '%2B6LwXwdSiXfBWg2A2q8IXzUCjGP13kzdct07M%2Bu6z9a%2BtwEhnndllUmg%2B9dzpW9ggINqxPfYck050bxzhUAPjw%3D%3D' \
                 + '&pageNo=' + '1' \
                 + '&numOfRows=' + '10'\
                 + '&dataType=' + 'XML' \
-                + '&fromTmFc=' + '20200420' \
-                + '&toTmFc=' + '20200420'
+                + '&fromTmFc=' + y \
+                + '&toTmFc=' + y
 
 
 
@@ -36,9 +37,9 @@ for code in resultmsg:
 print(bs_obj)
 
 if rstlist[0]=='NO_DATA':
-    print("현재 태풍 X ")
+    print("오늘일자: "+y+" /현재 태풍 X ")
 else:
-    print(bs_obj)
+    print("오늘일자: "+y+ " "+ bs_obj)
 
 
 
