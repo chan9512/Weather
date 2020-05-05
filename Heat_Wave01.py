@@ -23,7 +23,7 @@ if x_now>=600 and x_now<1800:
                     + '&dataType=' + 'XML' \
                     + '&regId=' + '11B20201' \
                     + '&tmFc=' + today_string
-    print('0600~1800')
+    #print('0600~1800')
 else:
     today_string = today.strftime('%Y%m%d') + '1800'
     Queryparams = '?' + 'serviceKey=' + '%2B6LwXwdSiXfBWg2A2q8IXzUCjGP13kzdct07M%2Bu6z9a%2BtwEhnndllUmg%2B9dzpW9ggINqxPfYck050bxzhUAPjw%3D%3D' \
@@ -32,14 +32,14 @@ else:
                   + '&dataType=' + 'XML' \
                   + '&regId=' + '11B20201' \
                   + '&tmFc=' + today_string
-    print('1800~0600')
+    #print('1800~0600')
 
 
 url = url + Queryparams
 result = requests.get(url)
 
 bs_obj = BeautifulSoup(result.text, "html.parser")
-print(bs_obj)
+#print(bs_obj)
 CommerceInfor = {}
 Max_3list = []
 Min_3list = []

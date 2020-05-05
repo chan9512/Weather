@@ -14,7 +14,7 @@ url = 'http://apis.data.go.kr/1360000/TyphoonInfoService/getTyphoonInfo'
 today = date.today()
 now = datetime.now()
 y=today.strftime('%Y%m%d')
-print(y)
+#print(y)
 Queryparams = '?' + 'serviceKey=' + '%2B6LwXwdSiXfBWg2A2q8IXzUCjGP13kzdct07M%2Bu6z9a%2BtwEhnndllUmg%2B9dzpW9ggINqxPfYck050bxzhUAPjw%3D%3D' \
                 + '&pageNo=' + '1' \
                 + '&numOfRows=' + '10'\
@@ -34,10 +34,10 @@ resultmsg = bs_obj.find_all('resultmsg')
 for code in resultmsg:
     rstlist.append(code.text)
 
-print(bs_obj)
+#print(bs_obj)
 
 if rstlist[0]=='NO_DATA':
-    print("오늘일자: "+y+" /현재 태풍 X ")
+    print("오늘일자: "+y+" /현재 태풍 관측정보 X ")
 else:
     print("오늘일자: "+y+ " "+ bs_obj)
 
