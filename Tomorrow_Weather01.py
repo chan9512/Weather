@@ -119,9 +119,12 @@ jsonObj = json.loads(jsonString)
 #for item in jsonObj:
  #   print(item['fcstDate'],item['fcstTime'],item['category'],item['fcstValue'])
 print("<내일 날씨>")
+O=[]
+
 for n in range(150):
     if(jsonObj[n]['fcstDate']==Tomorrow and jsonObj[n]['category']=='POP') :
-        print(jsonObj[n]['fcstTime']+"시",'강수확률',jsonObj[n]['fcstValue']+'%')
+        #print(jsonObj[n]['fcstTime']+"시",'강수확률',jsonObj[n]['fcstValue']+'%')
+        O.append(jsonObj[n]['fcstValue'])
     #if(jsonObj[n]['fcstDate']==Tomorrow and jsonObj[n]['category']=='R06'):
      #   print(jsonObj[n]['fcstDate'],jsonObj[n]['fcstTime']+"시",jsonObj[n]['category']+'(6시간 강수량)',jsonObj[n]['fcstValue']+'mm')
     if(jsonObj[n]['fcstDate']==Tomorrow and jsonObj[n]['category']=='TMN'):
@@ -129,6 +132,17 @@ for n in range(150):
     if(jsonObj[n]['fcstDate']==Tomorrow and jsonObj[n]['category']=='TMX'):
         Tmax = jsonObj[n]['fcstValue']+"℃"
 print("내일 최저 기온: "+ Tmin+"," , "내일 최고 기온: " + Tmax)
+if(int(O[0])>=50 or int(O[1])>=50 or int(O[2])>=50 or int(O[3])>=50):
+    print("오전에 비")
+else:
+    print("오전 비 X")
+if(int(O[4])>=50 or int(O[5])>=50 or int(O[6])>=50 or int(O[7])>=50):
+    print("오후에 비")
+else:
+    print("오후 비 X")
+
+
+
 
 
 
