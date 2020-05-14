@@ -116,17 +116,13 @@ content = requests.get(url).content
 dict = xmltodict.parse(content)
 jsonString = json.dumps(dict['response']['body']['items']['item'], ensure_ascii=False)
 jsonObj = json.loads(jsonString)
-#for item in jsonObj:
- #   print(item['fcstDate'],item['fcstTime'],item['category'],item['fcstValue'])
+
 print("<내일 날씨>")
 O=[]
 
 for n in range(150):
     if(jsonObj[n]['fcstDate']==Tomorrow and jsonObj[n]['category']=='POP') :
-        #print(jsonObj[n]['fcstTime']+"시",'강수확률',jsonObj[n]['fcstValue']+'%')
         O.append(jsonObj[n]['fcstValue'])
-    #if(jsonObj[n]['fcstDate']==Tomorrow and jsonObj[n]['category']=='R06'):
-     #   print(jsonObj[n]['fcstDate'],jsonObj[n]['fcstTime']+"시",jsonObj[n]['category']+'(6시간 강수량)',jsonObj[n]['fcstValue']+'mm')
     if(jsonObj[n]['fcstDate']==Tomorrow and jsonObj[n]['category']=='TMN'):
         Tmin = jsonObj[n]['fcstValue']+"℃"
     if(jsonObj[n]['fcstDate']==Tomorrow and jsonObj[n]['category']=='TMX'):
