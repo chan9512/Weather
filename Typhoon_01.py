@@ -32,8 +32,6 @@ jsonString = json.dumps(dict['response']['body']['items']['item'], ensure_ascii=
 jsonObj = json.loads(jsonString)
 #dump() 와 dumps() 는 파이썬 타입을 JSON으로 변환하는 메소드
 #JSON 형태의 문자열을 읽기 위해 loads()를 사용한다
-print(jsonString2)
-print(jsonObj2)
 if jsonObj2['resultMsg']=='NO_DATA':
     print('관측 태풍 정보가 없습니다.')
 else:
