@@ -23,18 +23,20 @@ Queryparams = '?' + 'serviceKey=' + '%2B6LwXwdSiXfBWg2A2q8IXzUCjGP13kzdct07M%2Bu
                 + '&fromTmFc=' + y \
                 + '&toTmFc=' + y
 url = url + Queryparams
-
 content = requests.get(url).content
 dict = xmltodict.parse(content)
 jsonString2 = json.dumps(dict['response']['header'], ensure_ascii=False)
 jsonObj2 = json.loads(jsonString2)
-jsonString = json.dumps(dict['response']['body']['items']['item'], ensure_ascii=False)
-jsonObj = json.loads(jsonString)
+
 #dump() 와 dumps() 는 파이썬 타입을 JSON으로 변환하는 메소드
 #JSON 형태의 문자열을 읽기 위해 loads()를 사용한다
+
+
 if jsonObj2['resultMsg']=='NO_DATA':
     print('관측 태풍 정보가 없습니다.')
 else:
+    jsonString = json.dumps(dict['response']['body']['items']['item'], ensure_ascii=False)
+    jsonObj = json.loads(jsonString)
     print('태풍관측정보: '+jsonObj[0]['rem'])
     print('태풍발생위치: '+jsonObj[0]['typLoc'])
 
